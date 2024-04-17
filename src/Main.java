@@ -1,5 +1,6 @@
 import week1.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -58,7 +59,7 @@ public class Main {
 
 
             System.out.println("Contains key1: " + cache.containsKey("key1"));
-        List<Person> people = new ArrayList<>();
+            List<Person> people = new ArrayList<>();
             people.add(new Person("Alice", 30, 50000));
             people.add(new Person("Bob", 25, 60000));
             people.add(new Person("Charlie", 35, 45000));
@@ -70,6 +71,39 @@ public class Main {
                     .filter(person -> person.getAge() > 25)
                 .map(Person::getName)
                     .forEach(System.out::println);
+
+        ExceptionHandlingExercises exercises = new ExceptionHandlingExercises();
+
+        try {
+            exercises.throwCheckedException();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            exercises.throwUncheckedException();
+        } catch (ArithmeticException e) {
+            e.printStackTrace();
+        }
+
+        exercises.nestedTryCatch();
+
+        exercises.readFile();
+
+
+        try {
+            exercises.testCustomException();
+        } catch (ExceptionHandlingExercises.CustomException e) {
+            e.printStackTrace();
+        }
+
+        ConcurrencyExercises.imageProcessingWithThreadPool();
+
+        ConcurrencyExercises.threadSafeCache();
+
+        ConcurrencyExercises.sharedCounterWithSynchronization();
+
+        ConcurrencyExercises.deadlockExample();
 }}
 
 
