@@ -1,5 +1,14 @@
 import week1.*;
-
+import week2.DesignPatterns;
+import week2.DesignPatterns.Logger;
+import week2.DesignPatterns.ShapeFactory;
+import week2.DesignPatterns.WindowsUIComponentFactory;
+import week2.DesignPatterns.MacOSUIComponentFactory;
+import week2.DesignPatterns.LegacyPaymentLibrary;
+import week2.DesignPatterns.PaymentAdapter;
+import week2.DesignPatterns.OrderProcessingFacade;
+import week2.DesignPatterns.Sorter;
+import week2.DesignPatterns.BubbleSort;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -104,6 +113,39 @@ public class Main {
         ConcurrencyExercises.sharedCounterWithSynchronization();
 
         ConcurrencyExercises.deadlockExample();
+
+
+   DesignPatterns.Logger logger = DesignPatterns.Logger.getInstance();
+        logger.log("Singleton Logger created.");
+
+
+        DesignPatterns.ShapeFactory shapeFactory = new DesignPatterns.ShapeFactory();
+        DesignPatterns.Shape circle = shapeFactory.createShape("circle");
+        circle.draw();
+        DesignPatterns.Shape square = shapeFactory.createShape("square");
+        square.draw();
+
+
+
+        DesignPatterns.WindowsUIComponentFactory windowsFactory = new DesignPatterns.WindowsUIComponentFactory();
+        DesignPatterns.Button windowsButton = windowsFactory.createButton();
+        windowsButton.render();
+        DesignPatterns.MacOSUIComponentFactory macosFactory = new DesignPatterns.MacOSUIComponentFactory();
+        DesignPatterns.Button macosButton = macosFactory.createButton();
+        macosButton.render();
+
+
+        DesignPatterns.LegacyPaymentLibrary legacyPaymentLibrary = new DesignPatterns.LegacyPaymentLibrary();
+        DesignPatterns.PaymentAdapter paymentAdapter = new DesignPatterns.PaymentAdapter(legacyPaymentLibrary);
+        paymentAdapter.processPayment(100.50f);
+
+
+        DesignPatterns.OrderProcessingFacade orderProcessingFacade = new DesignPatterns.OrderProcessingFacade();
+        orderProcessingFacade.placeOrder("Laptop", 1, 1500.00f, "123 Street");
+
+
+        DesignPatterns.Sorter sorter = new DesignPatterns.Sorter(new DesignPatterns.BubbleSort());
+        int[] array = {3, 1, 4, 1, 5, 9, 2, 6};
 }}
 
 
