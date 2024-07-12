@@ -1,27 +1,30 @@
-package week1;//Lab Exercise #4: Design a Generic Class for week1.Stack Data Structure
+package week1.oop;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
-public class Stack<T> {
-    private final ArrayList<T> elements;
+public class exercise4 {
+    private final ArrayList<Object> elements;
 
-    public Stack() {
+    // Constructor initializes the stack
+    public exercise4() {
         elements = new ArrayList<>();
     }
 
-    public void push(T element) {
+    // Adds an element to the top of the stack
+    public void push(Object element) {
         elements.add(element);
     }
 
-
-    public T pop() {
+    // Removes and returns the top element of the stack
+    public Object pop() {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
         return elements.remove(elements.size() - 1);
     }
 
+    // Checks if the stack is empty
     public boolean isEmpty() {
         return elements.isEmpty();
     }
